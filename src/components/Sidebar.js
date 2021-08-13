@@ -1,18 +1,20 @@
-function Sidebar({ products }) {
-  let sizes = products.reduce((acc, cv) => {
-    acc = acc.concat(cv.availableSizes);
-    return acc;
-  }, []);
-  let uniqueSizes = [...new Set(sizes)];
+import { connect } from 'react-redux';
+
+function Sidebar(props) {
   return (
-    <aside className="flex-20 sidebar">
-      <div className="flex wrap">
-        {uniqueSizes.map((size) => (
-          <span className="size">{size}</span>
+    <aside className='flex-20 sidebar'>
+      <div className='flex wrap'>
+        {props.uniqueSizes.map((size, i) => (
+          <span className='size' key={i}>
+            {size}
+          </span>
         ))}
       </div>
     </aside>
   );
 }
+function mapStateToProps(state) {
+  return { uniqueSizes: state.uniqueSizes };
+}
 
-export default Sidebar;
+export default connect(mapStateToProps)(Sidebar);
