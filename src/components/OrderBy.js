@@ -7,7 +7,7 @@ function OrderBy(props) {
       <select
         value={props.selectedOrder}
         onChange={(event) => {
-          props.dispatch({ type: 'handleOrderBy', payload: { event } });
+          // props.dispatch({ type: 'handleOrderBy', payload: { event } });
           props.dispatch({ type: 'handleOrderProducts' });
         }}
       >

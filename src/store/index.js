@@ -25,9 +25,15 @@ function reducer(state = { products, uniqueSizes, selectedOrder: '' }, action) {
         sortedProductss = sortedProductss.sort((a, b) => {
           return b.price - a.price;
         });
+        console.log(state.products === sortedProductss);
+        console.log(state.products == sortedProductss);
       }
       if (state.selectedOrder === 'lowest') {
         sortedProductss = sortedProductss.sort((a, b) => a.price - b.price);
+        console.log(state.products === sortedProductss);
+        console.log(state.products == sortedProductss);
+      } else {
+        //
       }
 
       return { ...state, products: sortedProductss };
